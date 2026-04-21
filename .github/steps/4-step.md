@@ -1,6 +1,6 @@
 ## Step 4: Creating Custom Agents
 
-Now that you have instructions, prompts, and templates working together, you want to take customization one step further. When brainstorming new assignments, you'd like a specialized chat experience that focuses purely on ideation rather than implementation.
+Now that you have instructions, skills, and templates working together, you want to take customization one step further. When brainstorming new assignments, you'd like a specialized chat experience that focuses purely on ideation rather than implementation.
 
 ### 📖 Theory: Custom Agents
 
@@ -13,7 +13,6 @@ Visual Studio Code will look for `*.agent.md` files in `.github/agents/` directo
 >
 > - [VS Code Docs: Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 > - [GitHub Docs: Custom Agents Configuration](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
-
 
 ### ⌨️ Activity: Create an Assignment Brainstorming Custom Agent
 
