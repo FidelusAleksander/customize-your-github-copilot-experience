@@ -25,7 +25,9 @@ Agents discover skills automatically through **progressive disclosure**:
 1. **Activation**: When a task matches a skill's description, the agent reads the full `SKILL.md` instructions.
 1. **Resources**: Additional files (references, scripts) are loaded only when needed.
 
-This means agents can **use skills by themselves** — Copilot will automatically activate a skill when your request matches its description. You can also invoke a skill explicitly with a slash command (`/skill-name`). Because agents rely on the `name` and `description` to decide which skills to use, it's important to write a clear, specific description.
+This means you can have many skills installed without slowing things down — only what's relevant gets loaded into context.
+
+Skills get activated in two ways: **automatically** when Copilot matches your request to a skill's description, or **explicitly** via a slash command (`/skill-name`). Because agents rely on the `name` and `description` to decide which skills to activate, writing a clear, specific description is important.
 
 Visual Studio Code discovers skills from the `.github/skills/` directory by default.
 
