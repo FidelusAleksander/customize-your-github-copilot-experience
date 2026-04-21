@@ -36,21 +36,13 @@ See the [VS Code Docs: Agent Skills](https://code.visualstudio.com/docs/copilot/
 
 ### ⌨️ Activity: Create an Assignment Skill
 
-Now let's create a reusable skill that automates the entire assignment creation process. This is perfect for a skill because creating assignments involves multiple repetitive steps that follow the same pattern every time, and a skill can bundle the assignment template directly alongside the instructions.
+Now let's create a reusable skill that automates the entire assignment creation process. This is perfect for a skill because creating assignments involves multiple repetitive steps that follow the same pattern every time.
 
 1. Create the skill directory structure:
 
    ```text
    .github/skills/new-assignment/
    ```
-
-1. Copy the assignment template into the skill's references directory so the skill is self-contained. Create the following file:
-
-   ```text
-   .github/skills/new-assignment/references/ASSIGNMENT-TEMPLATE.md
-   ```
-
-   Copy the contents of `templates/assignment-template.md` into this file.
 
 1. Create the main skill file:
 
@@ -75,6 +67,7 @@ Now let's create a reusable skill that automates the entire assignment creation 
    ## Step 1: Gather Assignment Information
 
    If the user hasn't already specified a topic, ask them:
+
    - What programming concept or topic should the assignment cover?
    - Any specific difficulty level or prerequisites?
 
@@ -83,7 +76,7 @@ Now let's create a reusable skill that automates the entire assignment creation 
    ## Step 2: Create Assignment Structure
 
    1. Create a new directory in `assignments/` with a short, descriptive, kebab-case name (e.g., `python-text-processing`)
-   1. Create `README.md` inside that directory following the structure from the [assignment template](references/ASSIGNMENT-TEMPLATE.md)
+   1. Create `README.md` inside that directory following the structure from the [assignment template](../../../templates/assignment-template.md)
    1. Fill out all template sections — the objective should be 1-2 sentences, and tasks should have clear, measurable requirements
    1. (Optional) Add starter code files to the same directory if the assignment benefits from scaffolding
 
@@ -140,7 +133,7 @@ Now let's create a reusable skill that automates the entire assignment creation 
 1. Review the generated assignment content to ensure it matches your established conventions.
 
 1. Commit and push your changes:
-   - The new skill directory: `.github/skills/new-assignment/` (including `SKILL.md` and `references/`)
+   - The new skill directory: `.github/skills/new-assignment/` (including `SKILL.md`)
    - The generated assignment directory and files.
    - Updated `config.json` configuration.
 
