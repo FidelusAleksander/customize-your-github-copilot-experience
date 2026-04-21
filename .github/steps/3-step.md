@@ -63,27 +63,33 @@ Now let's create a reusable skill that automates the entire assignment creation 
    ```markdown
    ---
    name: new-assignment
-   description: Create a new programming homework assignment for Mergington High School students. Use when asked to create, add, or generate a new assignment.
+   description: Create a new programming homework assignment for Mergington High School students. Use this skill whenever the user wants to create, add, scaffold, or generate a new assignment, exercise, or homework — even if they don't use the word "assignment" explicitly.
    ---
 
    # Create New Programming Assignment
 
-   Your goal is to generate a new homework assignment for the Mergington High School students.
+   Generate a new homework assignment for the Mergington High School computer science course.
+
+   Assignments live in the `assignments/` directory, each in its own subfolder. The website reads from `config.json` to display them, so both the folder and the config entry need to be created.
 
    ## Step 1: Gather Assignment Information
 
-   If not already provided by the user, ask what the assignment will be about.
+   If the user hasn't already specified a topic, ask them:
+   - What programming concept or topic should the assignment cover?
+   - Any specific difficulty level or prerequisites?
+
+   Keep the scope appropriate for high school students learning programming.
 
    ## Step 2: Create Assignment Structure
 
-   1. Create a new directory in the `assignments` folder with a unique name based on the assignment topic
-   1. Create a new file in the directory named `README.md` with the structure from the [assignment template](references/ASSIGNMENT-TEMPLATE.md)
-   1. Fill out the assignment details in the README file
-   1. (Optional) Add starter code or attachments if the assignment needs them - add these files to the same assignment folder
+   1. Create a new directory in `assignments/` with a short, descriptive, kebab-case name (e.g., `python-text-processing`)
+   1. Create `README.md` inside that directory following the structure from the [assignment template](references/ASSIGNMENT-TEMPLATE.md)
+   1. Fill out all template sections — the objective should be 1-2 sentences, and tasks should have clear, measurable requirements
+   1. (Optional) Add starter code files to the same directory if the assignment benefits from scaffolding
 
    ## Step 3: Update Website Configuration
 
-   Update the assignments list in `config.json` website configuration file to include the new assignment. For the dueDate field, use the current date plus 7 days unless specified otherwise.
+   Add the new assignment to the `assignments` array in `config.json` so it appears on the website. Match the format of the existing entries. For the `dueDate` field, use the current date plus 7 days unless the user specifies otherwise.
    ```
 
 ### ⌨️ Activity: Test the Assignment Skill
