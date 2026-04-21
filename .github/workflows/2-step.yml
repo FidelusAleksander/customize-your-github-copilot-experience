@@ -1,7 +1,6 @@
 name: Step 2
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -21,6 +20,7 @@ env:
 jobs:
   find_exercise:
     name: Find Exercise Issue
+    if: github.run_number != 1
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.3
 
   check_step_work:

@@ -1,7 +1,6 @@
 name: Step 0 # Start Exercise
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -77,8 +76,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          ref: main
 
       - name: Get response templates
         uses: actions/checkout@v6
@@ -94,7 +91,6 @@ jobs:
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: ${{ env.STEP_1_FILE }}
           vars: |
-            login: ${{ github.actor }}
             full_repo_name: ${{ github.repository }}
 
       - name: Create comment - watching for progress
