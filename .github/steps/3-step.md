@@ -9,9 +9,7 @@ Creating assignments is a repetitive task and involves multiple steps, a perfect
 
 ### 📖 Theory: Agent Skills
 
-Agent Skills are an open standard for giving AI agents specialized capabilities and workflows. A skill is a folder containing a `SKILL.md` file with metadata and instructions, plus optional scripts, references, and other resources the agent can use.
-
-Skills work across multiple agents — including GitHub Copilot in VS Code, Copilot CLI, and the GitHub Copilot cloud agent.
+Agent Skills are an [open standard](https://agentskills.io/) for giving AI agents specialized capabilities and workflows. A skill is a folder containing a `SKILL.md` file with metadata and instructions, plus optional scripts, references, and other resources.
 
 ```text
 skill-name/
@@ -21,24 +19,20 @@ skill-name/
 └── assets/           # Optional: templates, resources
 ```
 
-Skills use **progressive disclosure** to keep your context efficient:
+Agents discover skills automatically through **progressive disclosure**:
 
-1. **Discovery**: At startup, agents load only the skill's `name` and `description` — just enough to know when each skill might be relevant.
-1. **Activation**: When a task matches a skill's description, the agent automatically reads the full `SKILL.md` instructions into context.
+1. **Discovery**: At startup, agents load only the skill's `name` and `description`.
+1. **Activation**: When a task matches a skill's description, the agent reads the full `SKILL.md` instructions.
 1. **Resources**: Additional files (references, scripts) are loaded only when needed.
 
-This means agents can **use skills by themselves** — when you ask Copilot to do something that matches a skill's description, it will automatically activate and follow that skill's instructions without you needing to do anything. You can also invoke a skill explicitly using a slash command (`/skill-name`) in the chat input.
-
-Because agents rely on the `name` and `description` to decide which skills to use, it's important to write a clear, specific description that helps the agent match the right tasks.
+This means agents can **use skills by themselves** — Copilot will automatically activate a skill when your request matches its description. You can also invoke a skill explicitly with a slash command (`/skill-name`). Because agents rely on the `name` and `description` to decide which skills to use, it's important to write a clear, specific description.
 
 Visual Studio Code discovers skills from the `.github/skills/` directory by default.
 
 > [!TIP]
-> Use skills to define repeatable tasks and workflows with bundled resources.
->
 > Write a clear `description` in the frontmatter so the agent knows **when** to use the skill. Reference additional files for templates, examples, and detailed documentation.
 
-See the [VS Code Docs: Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) and the [Agent Skills specification](https://agentskills.io/) for more information.
+See the [VS Code Docs: Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) for more information.
 
 ### ⌨️ Activity: Create an Assignment Skill
 
