@@ -11,7 +11,7 @@ Creating assignments is a repetitive task and involves multiple steps, a perfect
 
 Agent Skills are an open standard for giving AI agents specialized capabilities and workflows. A skill is a folder containing a `SKILL.md` file with metadata and instructions, plus optional scripts, references, and other resources the agent can use.
 
-Skills are invocable in Copilot Chat using slash commands (`/`) and work across multiple agents — including GitHub Copilot in VS Code, Copilot CLI, and the GitHub Copilot cloud agent.
+Skills work across multiple agents — including GitHub Copilot in VS Code, Copilot CLI, and the GitHub Copilot cloud agent.
 
 ```text
 skill-name/
@@ -23,16 +23,20 @@ skill-name/
 
 Skills use **progressive disclosure** to keep your context efficient:
 
-1. **Discovery**: Agents load only the skill's `name` and `description` at startup.
-1. **Activation**: When a task matches, the agent reads the full `SKILL.md` instructions.
+1. **Discovery**: At startup, agents load only the skill's `name` and `description` — just enough to know when each skill might be relevant.
+1. **Activation**: When a task matches a skill's description, the agent automatically reads the full `SKILL.md` instructions into context.
 1. **Resources**: Additional files (references, scripts) are loaded only when needed.
+
+This means agents can **use skills by themselves** — when you ask Copilot to do something that matches a skill's description, it will automatically activate and follow that skill's instructions without you needing to do anything. You can also invoke a skill explicitly using a slash command (`/skill-name`) in the chat input.
+
+Because agents rely on the `name` and `description` to decide which skills to use, it's important to write a clear, specific description that helps the agent match the right tasks.
 
 Visual Studio Code discovers skills from the `.github/skills/` directory by default.
 
 > [!TIP]
 > Use skills to define repeatable tasks and workflows with bundled resources.
 >
-> Focus the `SKILL.md` instructions on **WHAT** needs to be done. Reference additional files for templates, examples, and detailed documentation.
+> Write a clear `description` in the frontmatter so the agent knows **when** to use the skill. Reference additional files for templates, examples, and detailed documentation.
 
 See the [VS Code Docs: Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) and the [Agent Skills specification](https://agentskills.io/) for more information.
 
