@@ -82,8 +82,45 @@ Now let's create a reusable skill that automates the entire assignment creation 
 
    ## Step 3: Update Website Configuration
 
-   Add the new assignment to the `assignments` array in `config.json` so it appears on the website. Match the format of the existing entries. For the `dueDate` field, use the current date plus 7 days unless the user specifies otherwise.
+   Run the bundled script to register the new assignment on the website:
+
+       node .github/skills/new-assignment/scripts/update-config.js <id> "<title>" "<description>"
+
+   This adds the entry to `config.json` with a due date 7 days from today.
    ```
+
+1. Skills can also bundle scripts for deterministic tasks that are better handled by code than by the AI. Let's add a helper script that the skill references to update `config.json`. Create the following file:
+
+   ```text
+   .github/skills/new-assignment/scripts/update-config.js
+   ```
+
+   Add the following content:
+
+   ```javascript
+   const fs = require("fs");
+   const path = require("path");
+
+   const [id, title, description] = process.argv.slice(2);
+   const configPath = path.resolve(__dirname, "../../../../config.json");
+   const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+
+   const dueDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+
+   config.assignments.push({
+     id,
+     title,
+     description,
+     path: `assignments/${id}`,
+     dueDate,
+   });
+
+   fs.writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n");
+   console.log(`Added "${title}" (due ${dueDate})`);
+   ```
+
+   > [!NOTE]
+   > Bundling scripts in a skill lets you handle deterministic tasks — like computing dates and updating JSON — with reliable code instead of leaving it to the AI to generate each time. The agent will use this script when it follows the skill's instructions.
 
 ### ⌨️ Activity: Test the Assignment Skill
 
@@ -133,7 +170,7 @@ Now let's create a reusable skill that automates the entire assignment creation 
 1. Review the generated assignment content to ensure it matches your established conventions.
 
 1. Commit and push your changes:
-   - The new skill directory: `.github/skills/new-assignment/` (including `SKILL.md`)
+   - The new skill directory: `.github/skills/new-assignment/` (including `SKILL.md` and `scripts/`)
    - The generated assignment directory and files.
    - Updated `config.json` configuration.
 
