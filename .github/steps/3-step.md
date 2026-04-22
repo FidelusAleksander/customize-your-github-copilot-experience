@@ -121,8 +121,7 @@ Now let's create a reusable skill that automates the entire assignment creation 
    console.log(`Added "${title}" (due ${dueDate})`);
    ```
 
-   > [!NOTE]
-   > Bundling scripts in a skill lets you handle deterministic tasks — like computing dates and updating JSON — with reliable code instead of leaving it to the AI to generate each time. The agent will use this script when it follows the skill's instructions.
+    Bundling scripts in a skill lets you handle deterministic tasks - with reliable code instead of leaving it to the AI to generate each time. The agent can use this script as it follows the skill's instructions.
 
 ### ⌨️ Activity: Test the Assignment Skill
 
