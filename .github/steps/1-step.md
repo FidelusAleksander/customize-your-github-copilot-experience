@@ -9,7 +9,7 @@ You've heard Copilot Instructions can help with that!
 
 You will run this website in the first activity!
 
-<img width="600" alt="screenshot of homework website" src="https://github.com/user-attachments/assets/2383b6e9-64d5-4907-94b3-b67153efb008" />
+<img width="600" alt="screenshot of homework website" src="../images/homework-website-screenshot.png" />
 
 </details>
 
@@ -102,7 +102,7 @@ Now that you've explored the project, let's create custom instructions to help C
 
 1. Notice that Copilot uses your custom instructions as a reference in the response.
 
-   <img width="504" height="183" alt="image" src="https://github.com/user-attachments/assets/2214ed9e-c165-4440-a23e-d2d33c0231a9" />
+   <img width="504" height="183" alt="image" src="../images/copilot-custom-instructions-reference.png" />
 
 1. Commit the `.github/copilot-instructions.md` file to the `main` branch and push it to GitHub.
 
