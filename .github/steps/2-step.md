@@ -79,7 +79,7 @@ Now let's create targeted instructions specifically for assignment files to ensu
 
 1. Observe how Copilot references the general project instructions and the assignment specific instruction files.
 
-   <img width="492" height="376" alt="screenshot of Copilot chat showing attached references" src="../images/copilot-chat-attached-references.png" />
+   <img width="600" alt="screenshot of Copilot chat showing attached references" src="../images/copilot-chat-reviews-instructions.png" />
 
 1. Compare the suggested changes with the original file structure to see how Copilot applied your instructions. Apply the suggested changes and check how the updated assignment now appears on the **Site Preview**.
 
