@@ -5,48 +5,33 @@ description: Create a new programming homework assignment for Mergington High Sc
 
 # Create New Programming Assignment
 
-Generate a new homework assignment for the Mergington High School computer science course.
+Assignments live in `assignments/<id>/`, and the website reads `config.json` to display them. Follow these steps to create both.
 
-Assignments live in the `assignments/` directory, each in its own subfolder. The website reads from `config.json` to display them, so both the folder and the config entry need to be created.
+## Step 1: Gather Requirements
 
-## Step 1: Gather Assignment Information
+If the user hasn't specified, ask what programming concept the assignment should cover.
 
-If the user hasn't already specified a topic, ask them:
+> 📖 Read [references/assignment-guide.md](references/assignment-guide.md) for guidance on difficulty, scope, and when to include starter code.
 
-- What programming concept or topic should the assignment cover?
-- Any specific difficulty level or prerequisites?
+## Step 2: Create the Assignment
 
-Keep the scope appropriate for high school students learning programming.
+1. Create `assignments/<kebab-case-id>/README.md` following the [assignment template](../../../templates/assignment-template.md)
+2. (Optional) Add starter code or data files to the same directory
 
-## Step 2: Create Assignment Structure
+## Step 3: Register with the Website
 
-1. Create a new directory in `assignments/` with a short, descriptive, kebab-case name (e.g., `python-text-processing`)
-1. Create `README.md` inside that directory following the structure from the [assignment template](../../../templates/assignment-template.md)
-1. Fill out all template sections — the objective should be 1-2 sentences, and tasks should have clear, measurable requirements
-1. (Optional) Add starter code files to the same directory if the assignment benefits from scaffolding
+Use the bundled scripts — do NOT edit `config.json` manually.
 
-## Step 3: Update Website Configuration
-
-> **IMPORTANT:** You MUST use the bundled script below to register the assignment. Do NOT edit `config.json` directly.
-
-Run the script to register the new assignment on the website:
+**Register the assignment:**
 
     node .github/skills/new-assignment/scripts/update-config.js <id> "<title>" "<description>"
 
-This adds the entry to `config.json` with a due date 7 days from today.
+**Register each file as an attachment** (starter code, data files, etc.):
 
-## Step 4: Register Attachments
+    node .github/skills/new-assignment/scripts/add-attachment.js <id> "<display-name>" <filename> <type>
 
-> **IMPORTANT:** You MUST use the bundled script below to register attachments. Do NOT edit `config.json` directly.
+Common types: `python`, `csv`, `json`, `txt`, `html`
 
-For every file you created in the assignment directory (starter code, data files, etc.), run the script to register it as an attachment so the website can link to it:
+## Step 4: Verify
 
-    node .github/skills/new-assignment/scripts/add-attachment.js <assignment-id> "<display-name>" <filename> <type>
-
-For example, to register a starter code file:
-
-    node .github/skills/new-assignment/scripts/add-attachment.js python-text-processing "Starter Code" starter-code.py python
-
-Common attachment types: `python`, `csv`, `json`, `txt`, `html`
-
-This is idempotent — running it twice for the same file is safe.
+Confirm the assignment was registered correctly: check that `config.json` contains the new entry and that all created files exist on disk.
