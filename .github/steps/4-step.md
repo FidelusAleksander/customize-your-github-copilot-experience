@@ -58,10 +58,9 @@ Now let's create a specialized custom agent that helps brainstorm assignment ide
    ```
 
    Let's break down the key parts:
-
    - **`tools: ["search", "vscode/askQuestions"]`** — gives the agent the ability to search the codebase and present structured questions with selectable options, rather than relying on free-text back-and-forth.
    - **`handoffs`** — defines a "Create this assignment" button. When clicked, it switches to the regular Copilot Agent mode and automatically sends a prompt referencing the brainstormed recommendation. This should trigger the `new-assignment` skill from Step 3 so that the assignment is actually created based on the brainstormed idea.
-   - **The body instructions** — define the agent's personality and workflow. Notice it's focused on *ideation only* and explicitly defers implementation to the skill.
+   - **The body instructions** — define the agent's personality and workflow. Notice it's focused on _ideation only_ and explicitly defers implementation to the skill.
 
 ### ⌨️ Activity: Test the Brainstorming Custom Agent
 
@@ -81,9 +80,11 @@ Now let's create a specialized custom agent that helps brainstorm assignment ide
 
 1. The agent will scan your existing assignments, then ask you structured questions about difficulty and topic preferences. Answer the questions to narrow down the recommendation.
 
-1. Once the agent recommends an assignment, click the **Create this assignment** button. The handoff automatically sends a prompt to the default Copilot agent, which triggers the `new-assignment` skill from Step 3!
+1. Once the agent recommends an assignment, click the **Create this assignment** button to hand off to Agent Mode for implementation.
 
-1. Commit and push your changes for the new custom agent file: `.github/agents/assignment-brainstorming.agent.md`
+   <img width="380" alt="Create this assignment handoff button" src="../images/handoff-button.png" />
+
+1. Commit and push your changes to the `main` branch.
 
 1. Wait for Mona to give you a final review!
 
