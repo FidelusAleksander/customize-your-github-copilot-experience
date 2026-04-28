@@ -28,12 +28,12 @@ Now let's create a specialized custom agent that helps brainstorm assignment ide
 
    ```markdown
    ---
-   name: assignment-brainstorming
+   name: Assignment Brainstorming
    description: Brainstorm the next programming assignment for Mergington High School students
    tools: ["search", "vscode/askQuestions"]
    handoffs:
      - label: "Create this assignment"
-       agent: copilot
+       agent: agent
        prompt: "Create a new assignment based on the recommendation from the brainstorming session above."
        send: true
    ---
@@ -69,7 +69,7 @@ Now let's create a specialized custom agent that helps brainstorm assignment ide
 
 1. Select your custom agent from the agent dropdown list.
 
-   <img width="379" height="218" alt="copilot agent: assignment brainstorming agent selected" src="../images/copilot-agent-dropdown-selection.png" />
+   <img width="379" height="218" alt="copilot agent: assignment brainstorming agent selected" src="../images/custom-agent-dropdown-selection.png" />
 
 1. Start a brainstorming session:
 
