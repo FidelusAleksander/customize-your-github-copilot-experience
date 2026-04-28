@@ -38,12 +38,14 @@ See the [VS Code Docs: Agent Skills](https://code.visualstudio.com/docs/copilot/
 
 ### ⌨️ Activity: Create the Skill Skeleton
 
-Let's start by creating the skill directory and its main `SKILL.md` file. This is the only file the agent reads on activation — it contains the metadata and step-by-step instructions the agent will follow.
+Let's start by creating the full skill directory structure and its main `SKILL.md` file. We'll create all the directories upfront — including `references/` and `scripts/` — so everything is in place as we add files in the following activities.
 
-1. Create the skill directory structure:
+1. Create the skill directory structure with all subdirectories:
 
    ```text
    .github/skills/new-assignment/
+   .github/skills/new-assignment/references/
+   .github/skills/new-assignment/scripts/
    ```
 
 1. Create the main skill file:
@@ -98,7 +100,7 @@ Let's start by creating the skill directory and its main `SKILL.md` file. This i
 
 ### ⌨️ Activity: Add a Reference Guide
 
-Skills can include a `references/` folder for domain knowledge the agent can consult as needed. Our `SKILL.md` points to `references/assignment-guide.md` so the agent can read it when deciding difficulty and scope — but only when it actually needs that context.
+Let's populate the `references/` directory with domain knowledge the agent can consult as needed. The `SKILL.md` points to `references/assignment-guide.md` so the agent can read it when deciding difficulty and scope — but only when it actually needs that context.
 
 1. Create the reference file:
 
