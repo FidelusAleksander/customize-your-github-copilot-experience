@@ -24,7 +24,7 @@ Now let's create a specialized custom agent that helps brainstorm assignment ide
    .github/agents/assignment-brainstorming.agent.md
    ```
 
-1. Add the following content:
+1. Add the following content to create a focused brainstorming experience:
 
    ```markdown
    ---
